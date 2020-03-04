@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        <link href="{% static "bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+        <!--<link href="{% static "css/merilimpio.css" %}" rel="stylesheet">-->
+        <script src="https://kit.fontawesome.com/2b465be636.js" crossorigin="anonymous"></script>
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <div class="container-fluid">
+        {% include "cabecera.html" %}
+        </div>
+        <div class="container-fluid">
+        {% include "navbar.html" %}
+        </div>
+        <div class="container-fluid">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        {% include "footer.html" %}
+
+        <!-- All that javascript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
