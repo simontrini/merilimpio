@@ -1,22 +1,25 @@
 {% load static %}
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-center">
+<div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center " style="background:transparent url('{% static "imagenes/cieloMerilimpio.jpg" %}') no-repeat; background-size: cover;"
+style="width: 100px; height: 100px;">
+<div class="row" >
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center" >
 
-        <svg class="bd-placeholder-img rounded-circle img-thumbnail " width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
+     <svg class="bd-placeholder-img rounded-circle img-thumbnail" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140">
             <title>Corona de agua</title>
             <rect width="100%" height="100%" fill="#777" />
-            <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
-            <image xlink:href="{% static "imagenes/merilimpioCorona.jpg" %}" x=0 y=-40 width=230 height=230 />
+            <text x="30%" y="30%" fill="#777" dy=".3em">140x140</text>
+            <image xlink:href="{% static "imagenes/merilimpioCorona.jpg" %}" x=0 y=-40 width=300 height=280 />
 
         </svg>
     </div>
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-center">
-        <h1 class="display-4 font-weight-normal">Merilimpio</h1>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
+        <h1 class="text-white"style= "font-family: 'Arvo', cursive;">Merilimpio C.A</h1><br>
+        <p class="card-text text-muted h6">Rif. J-31281733-0 </p>
     </div>
-
-</div>
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-primary text-center">
+    <div class="container-fluid">
+        {% include "navbar.html" %}
+        </div>
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center">
         <!-- Social buttons -->
         <ul class="list-unstyled list-inline text-center text-white">
           <li class="list-inline-item">
@@ -53,4 +56,7 @@
         </ul>
         <!-- Social buttons -->
     </div>
+
+</div>
+
 </div>
