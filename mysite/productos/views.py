@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
-from django.shortcuts import render
+#from django.shortcuts import render
 from django.views import generic
-from .models import Post
+from .models import Producto
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=1).order_by('-creado_on')
-    template_name = 'listaDePost.html'
+class List(generic.ListView):
+    model = Producto
+    queryset = Producto.objects.filter(status=1).order_by('-creado_on')
+    template_name = 'listaDeProductos.html'
 
-class PostDetail(generic.DetailView):
-    model = Post
-    template_name = 'detalleDePost.html'
+class Detail(generic.DetailView):
+    model = Producto
+    template_name = 'detalleDeProducto.html'

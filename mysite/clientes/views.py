@@ -3,13 +3,14 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views import generic
-from .models import Post
+from .models import Cliente
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=1).order_by('-creado_on')
-    template_name = 'listaDePost.html'
+class List(generic.ListView):
+    model = Cliente
+    queryset = Cliente.objects.filter(status=1).order_by('-creado_on')
+    template_name = 'lista.html'
 
-class PostDetail(generic.DetailView):
-    model = Post
-    template_name = 'detalleDePost.html'
+class Detail(generic.DetailView):
+    model = Cliente
+    template_name = 'detalle.html'
+

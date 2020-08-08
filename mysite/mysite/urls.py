@@ -9,8 +9,10 @@ urlpatterns = [
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^$', views.inicio, name='inicio'),
     url(r'^blog/', include('blog.urls')),
-    url(r'^productos/', views.productos, name='productos'),
-    url(r'^clientes/', views.clientes, name='clientes'),
+    url(r'^clientes/', include('clientes.urls')),
+    url(r'^productos/', include('productos.urls')),
+    #url(r'^productos/', views.productos, name='productos'),
+    #url(r'^clientes/', views.clientes, name='clientes'),
     url(r'^contacto/', views.contacto, name='contacto'),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

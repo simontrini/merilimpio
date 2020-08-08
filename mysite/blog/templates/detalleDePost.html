@@ -4,12 +4,32 @@
     <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 bg-primary">
         <div class="row">
             <!-- Blog Entries Column -->
-        <div class="col-md-12 mt-3 col-lg-12 left">
+        <div class="col-md-12 mt-3 col-lg-8 left" data-aos="fade-up">
             {% autoescape off %}
-                <img class="img-thumbnail h-30" src="{{ object.image.url}}" class="" alt="{{ object.titulo }}" >
-                    <h2 class="card-title">{{ object.titulo }}</h2>
-                    <p class="card-text text-muted h6">{{ object.autor }} | {{ object.creado_on}} </p>
-                    <p class="card-text">{{object.contenido }}</p>
+                <img class="img-thumbnail h-30 p-3 " src="{{ object.image.url}}" class="" alt="{{ object.titulo }}" >
+                     <div class="p-5 bg-white rounded-top border-dark">
+                         <h2 class="card-title">{{ object.titulo }}</h2>
+                        <p class="card-text text-muted h6">{{ object.autor }} | {{ object.creado_on}} </p>
+                        <p class="card-text">{{object.contenido }}</p>
+                        </div>
+            {% endautoescape %}
+        </div>
+        <div class="col-md-12 mt-3 col-lg-4 right overflow-auto" style="height:1000px; width: auto;">
+            {% autoescape off %}
+            {% for producto in productos %}
+                <div class="col-md-3 col-lg-3">
+                    <div class="card h-100" style="width: 18rem;">
+                        <img class="img-thumbnail h-30" src="{{ producto.image.url}}" class="" alt="{{ producto.nombre }}" >
+                        <div class="card-body">
+                            <h2 class="card-title">{{ producto.nombre }}</h2>
+                            <p class="card-text text-muted h6">{{ producto.tipo }} | {{ producto.precio}} </p>
+                            <p class="card-text">{{producto.contenido|truncatewords_html:70 }}</p>
+                            <a href="/productos/{{ producto.pk }}" class="btn btn-primary">Leer mas</a>
+                        </div>
+                    </div>
+
+                </div>
+            {% endfor %}
             {% endautoescape %}
         </div>
 

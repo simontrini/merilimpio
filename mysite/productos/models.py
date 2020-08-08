@@ -11,20 +11,27 @@ STATUS = (
     (0,"Draft"),
     (1,"Publish")
 )
-
-class Post(models.Model):
-    titulo = models.CharField(max_length=200, unique=True)
-    slug = models.SlugField(max_length=200, unique=True)
-    autor = models.ForeignKey(User, on_delete= models.CASCADE,related_name='blog_posts')
+TIPO = (
+    (0,"Desinfectante"),
+    (1,"Cloro"),
+    (2,"Jabon"),
+    (3,"Perfumen")
+)
+class Producto(models.Model):
+    nombre = models.CharField(max_length=200, unique=True)
+    codigo = models.CharField(max_length=100, unique=True)
+    precio = models.FloatField()
+    oferta = models.BooleanField(default=False)
+    tipo = models.IntegerField(choices=TIPO, default=0)
     subido_on = models.DateTimeField(auto_now= True)
     contenido = models.TextField()
     creado_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
-    image = models.ImageField(upload_to="blog", null=True, blank=True,
+    image = models.ImageField(upload_to="productos", null=True, blank=True,
         verbose_name="Imagen")
 
     class Meta:
         ordering = ['-creado_on']
 
     def __str__(self):
-        return self.titulo
+        return self.nombre
